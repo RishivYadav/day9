@@ -1,13 +1,13 @@
-import { writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 
 async function main() {
-  let filePath = "C:/Users/91833/OneDrive/Desktop/Day9/output1.txt";
-  let fileData = `Asynchronously writes data to a file, 
-                replacing the file if it already exists. 
-                data can be a string, a buffer, an <AsyncIterable>, 
-                or an <Iterable> object.`;
-  await writeFile(filePath, fileData);
-  console.log("Write Success");
+  try {
+    let filePath = "C:/Users/91883/OneDrive/Desktop/Day9/package.json";
+    let fileData = await readFile(filePath, { encoding: "utf8" });
+    console.log(fileData);
+  } catch (e) {
+    console.log("Exception Occured :: ", e.message);
+  }
 }
 
 main();
